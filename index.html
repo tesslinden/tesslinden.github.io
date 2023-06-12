@@ -10,7 +10,7 @@
   </style>
 </head>
 <body>
-  <p>Subscription $0.01/day:</p>
+  <p>Subscription $0.01/day ($0.01 fee):</p>
   <div id="paypal-button-container-P-2L862108KG363461TMR73XNQ"></div>
   <script src="https://www.paypal.com/sdk/js?client-id=AUw6QBdnhJ7xJE_7CISSCmG8SXgfw3J_NDJKvLyzHJU-1ytdPTYxcEYLn3pTL7JO7mVOKiYbnWfn1sCg&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
   <script>
@@ -32,28 +32,7 @@
         }
     }).render('#paypal-button-container-P-2L862108KG363461TMR73XNQ'); // Renders the PayPal button
   </script>
-  <p>Subscription $1.00/month:</p>
-  <div id="paypal-button-container-P-393663153L5579628MR73TXA"></div>
-  <script>
-    paypal.Buttons({
-        style: {
-            shape: 'rect',
-            color: 'blue',
-            layout: 'horizontal',
-            label: 'subscribe'
-        },
-        createSubscription: function(data, actions) {
-          return actions.subscription.create({
-            /* Creates the subscription */
-            plan_id: 'P-393663153L5579628MR73TXA'
-          });
-        },
-        onApprove: function(data, actions) {
-          alert(data.subscriptionID); // You can add optional success message for the subscriber here
-        }
-    }).render('#paypal-button-container-P-393663153L5579628MR73TXA'); // Renders the PayPal button
-  </script>
-  <p>Subscription $0.01/month:</p>
+  <p>Subscription $0.01/month ($? fee):</p>
   <div id="paypal-button-container-P-75816047YB726461TMSDWFLQ"></div>
   <script>
     paypal.Buttons({
@@ -73,6 +52,27 @@
           alert(data.subscriptionID); // You can add optional success message for the subscriber here
         }
     }).render('#paypal-button-container-P-75816047YB726461TMSDWFLQ'); // Renders the PayPal button
+  </script>
+  <p>Subscription $1.00/month ($0.52 fee):</p>
+  <div id="paypal-button-container-P-393663153L5579628MR73TXA"></div>
+  <script>
+    paypal.Buttons({
+        style: {
+            shape: 'rect',
+            color: 'blue',
+            layout: 'horizontal',
+            label: 'subscribe'
+        },
+        createSubscription: function(data, actions) {
+          return actions.subscription.create({
+            /* Creates the subscription */
+            plan_id: 'P-393663153L5579628MR73TXA'
+          });
+        },
+        onApprove: function(data, actions) {
+          alert(data.subscriptionID); // You can add optional success message for the subscriber here
+        }
+    }).render('#paypal-button-container-P-393663153L5579628MR73TXA'); // Renders the PayPal button
   </script>
 </body>
 </html>
