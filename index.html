@@ -3,7 +3,7 @@
 <head>
   <title>Tess's GitHub Page</title>
   <style>
-    #paypal-button-container-P-2L862108KG363461TMR73XNQ, #paypal-button-container-P-393663153L5579628MR73TXA {
+    #paypal-button-container-P-2L862108KG363461TMR73XNQ, #paypal-button-container-P-393663153L5579628MR73TXA, #paypal-button-container-P-75816047YB726461TMSDWFLQ {
     transform: scale(0.8);
     transform-origin: 0 0;
     }
@@ -52,6 +52,26 @@
           alert(data.subscriptionID); // You can add optional success message for the subscriber here
         }
     }).render('#paypal-button-container-P-393663153L5579628MR73TXA'); // Renders the PayPal button
+  </script>
+  <div id="paypal-button-container-P-75816047YB726461TMSDWFLQ"></div>
+  <script>
+    paypal.Buttons({
+        style: {
+            shape: 'rect',
+            color: 'black',
+            layout: 'horizontal',
+            label: 'subscribe'
+        },
+        createSubscription: function(data, actions) {
+          return actions.subscription.create({
+            /* Creates the subscription */
+            plan_id: 'P-75816047YB726461TMSDWFLQ'
+          });
+        },
+        onApprove: function(data, actions) {
+          alert(data.subscriptionID); // You can add optional success message for the subscriber here
+        }
+    }).render('#paypal-button-container-P-75816047YB726461TMSDWFLQ'); // Renders the PayPal button
   </script>
 </body>
 </html>
